@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function checkIfStudent() {
+            if (confirm("Are you a student?")) {
+                document.write("<h1>Welcome student!</h1>");
+            } else {
+                document.write("<h1>Sorry, this page is for students only</h1>");
+            }
+        }
+        window.onload = checkIfStudent;
+    </script>
+</head>
+<body>
+</body>
+</html>
