@@ -33,6 +33,18 @@
             </table>`;
             document.write(tableHTML);
         }
+
+        function showGeolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    let coords = "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+                    console.log(coords);
+                    document.write(coords);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
         </script>
     </head>
     <body class="ws3">
@@ -45,7 +57,7 @@
         <p>
           <button onclick="showAlert()">Click me</button>
           <button onclick="showTable()">Show table</button>
-          <button>Geolocation</button>
+          <button onclick="showGeolocation()">Geolocation</button>
         </p>
 
         <ol>
