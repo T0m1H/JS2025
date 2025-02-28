@@ -8,10 +8,24 @@
   </style>
 </head>
 <body>
-  <h1>To Do Lista</h1>
-  <input type="text" id="new-task" placeholder="Lisää uusi tehtävä">
-  <button onclick="addTask()">Lisää</button>
-  <ul id="task-list"></ul>
+    <div class="container">
+        <div class="stats-container">
+            <div class="details">
+                <h1>To Do Lista</h1>
+                <p>Hoidetut työt</p>
+                <div id="Suoritettu"></div>
+                <div id="Suoritus"></div>
+            </div>
+            <div class="stats-numbers">
+                <div id="numbers">5/10</div>
+            </div>
+        </div>
+    </div>
+    <form action = "">
+        <input type = "text" placeholder="Lisää tehtävä">
+        <button type="submit">Lisää</button>
+
+    </form>
   <script>
    function addTask() {
       var taskInput = document.getElementById('new-task');
