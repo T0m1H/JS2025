@@ -14,18 +14,21 @@
                 <h1>To Do Lista</h1>
                 <p>Hoidetut työt</p>
                 <div id="Suoritettu"></div>
-                <div id="Suoritus"></div>
+                  <div id="Suoritus"></div>
             </div>
-            <div class="stats-numbers">
-                <div id="numbers">5/10</div>
-            </div>
-        </div>
-    </div>
-    <form action = "">
-        <input type = "text" placeholder="Lisää tehtävä">
-        <button type="submit">Lisää</button>
+          </div>
+          <div class="stats-numbers">
+                <p id="numbers">2 / 3</p>
+          </div>
+        
+    
+        <form action = "">
+            <input type = "text" placeholder="Lisää tehtävä">
+            <button type="submit">Lisää</button>
+        </form>
 
-    </form>
+        <ul class="task-list"></ul>
+    </div>
   <script>
    function addTask() {
       var taskInput = document.getElementById('new-task');
