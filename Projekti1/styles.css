@@ -7,8 +7,6 @@
 body{
     background-color: darkgray;
     color: black;
-    border-color: black;
-    border-radius: 10px;
 }
 
 .container{
@@ -18,9 +16,18 @@ body{
     justify-content: center;
     margin-top: 120px;
 }
-.stats-container{
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid black;
+
+.task-list {
+    padding: 10px;
+  }
+  .task-list li {
     display: flex;
-}
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+  }
+  .task-list li.completed {
+    text-decoration: line-through;
+  }
+  
+

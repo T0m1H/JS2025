@@ -4,48 +4,20 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
   <title>Projekti 1</title>
-  <style>
-  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="stats-container">
-            <div class="details">
-                <h1>To Do Lista</h1>
-                <p>Hoidetut työt</p>
-                <div id="Suoritettu"></div>
-                  <div id="Suoritus"></div>
-            </div>
-          </div>
-          <div class="stats-numbers">
-                <p id="numbers">2 / 3</p>
-          </div>
-        
-    
-        <form action = "">
-            <input type = "text" placeholder="Lisää tehtävä">
-            <button type="submit">Lisää</button>
-        </form>
-
-        <ul class="task-list"></ul>
+  <div class="container">
+    <div class="stats-container">
+      <div class="details"></div>
+      <h1>ToDo Lista</h1>
+      <form id="task-form">
+        <input type="text" id="new-task" placeholder="Lisää tehtävä">
+        <button type="submit">Lisää</button>
+      </form>
+      <ul id="task-list" class="task-list"></ul>
     </div>
-  <script>
-   function addTask() {
-      var taskInput = document.getElementById('new-task');
-      var taskText = taskInput.value;
-      if (taskText === '') return;
-
-      var listItem = document.createElement('li');
-      listItem.innerText = taskText;
-      listItem.onclick = function() {
-        this.remove();
-      };
-
-      var taskList = document.getElementById('task-list');
-      taskList.appendChild(listItem);
-
-      taskInput.value = '';
-    }
-  </script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
+
