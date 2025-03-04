@@ -20,10 +20,6 @@ document.getElementById('task-form').addEventListener('submit', function(event) 
     };
     listItem.appendChild(deleteButton);
   
-    listItem.onclick = function() {
-      this.classList.toggle('completed');
-    };
-  
     var taskList = document.getElementById('task-list');
     taskList.appendChild(listItem);
   
