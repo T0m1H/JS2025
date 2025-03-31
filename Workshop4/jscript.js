@@ -129,6 +129,29 @@ function changePosition() {
     }
 }
 
+let position = 0; // Current position of the image
+let direction = 1; // Direction of movement (1 for forward, -1 for backward)
+
+function doMove() {
+    const carImage = document.getElementById("carimage");
+
+    if (carImage) {
+        // Set the image to absolute positioning
+        carImage.style.position = "absolute";
+
+        // Move the image horizontally
+        position += 10 * direction; // Change the position in steps of 10px
+        carImage.style.left = position + "px";
+
+        // Reverse direction when the image reaches the edge of the screen
+        const screenWidth = window.innerWidth - carImage.offsetWidth;
+        if (position >= screenWidth || position <= 0) {
+            direction *= -1; // Change direction
+        }
+    } else {
+        console.error("The element with ID 'carimage' was not found.");
+    }
+}
 
 
 
