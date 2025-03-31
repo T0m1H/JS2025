@@ -37,4 +37,13 @@ function appendParagraph() {
     }
 }
 
+function hide() {
+    // Find the element with id "me"
+    const element = document.getElementById('me');
+    
+    // Change its display value to "none"
+    element.style.display = 'none';
+}
+
+
 
