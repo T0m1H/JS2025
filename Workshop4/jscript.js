@@ -115,5 +115,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function changePosition() {
+    const carImage = document.getElementById("carimage");
+
+    if (carImage) {
+        // Ensure the element is positioned to allow movement
+        carImage.style.position = "absolute"; // Can also be "relative" or "fixed"
+        // Move the element
+        carImage.style.left = "200px"; // Move 200px from its current position
+        carImage.style.top = "500px"; // Move 500px down from its current position
+    } else {
+        console.error("The element with ID 'carimage' was not found.");
+    }
+}
+
+
+
 
 
