@@ -45,5 +45,14 @@ function hide() {
     element.style.display = 'none';
 }
 
+function show() {
+    // Find the element with id "me"
+    const element = document.getElementById('me');
+    
+    // Change its display value back to "block"
+    element.style.display = 'block';
+}
+
+
 
 
