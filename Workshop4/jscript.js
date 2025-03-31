@@ -63,6 +63,11 @@ function applySurpriseStyle() {
     });
 }
 
+document.getElementById("mySelect").onchange = function() {
+    let selectedValue = this.value;
+    alert("You selected: " + selectedValue);
+};
+
 
 
 
