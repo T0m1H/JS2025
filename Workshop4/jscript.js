@@ -172,6 +172,15 @@ function fadeOut() {
     }
 }
 
+function remove() {
+    const carImage = document.getElementById("carimage");
+    if (carImage) {
+        carImage.remove(); // Removes the image element from the DOM
+    } else {
+        console.error("The element with ID 'carimage' was not found.");
+    }
+}
+
 
 
 
