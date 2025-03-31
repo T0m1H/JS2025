@@ -63,9 +63,20 @@ function applySurpriseStyle() {
     });
 }
 
-document.getElementById("mySelect").onchange = function() {
-    let selectedValue = this.value;
+function showUserChoice() {
+    const selectMenu = document.getElementById("mySelect");
+    const selectedValue = selectMenu.value;
     alert("You selected: " + selectedValue);
+}
+
+
+const carImage = document.getElementById("carimage");
+
+carImage.onmouseover = function() {
+    carImage.style.border = "5px solid red";
+};
+carImage.onmouseout = function() {
+    carImage.style.border = "none";
 };
 
 
