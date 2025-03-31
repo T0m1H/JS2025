@@ -181,6 +181,33 @@ function remove() {
     }
 }
 
+function insertRows() {
+    // Get the table element
+    const table = document.getElementById("data");
 
+    // Get input values
+    const name = document.getElementById("textfield").value;
+    const position = document.getElementById("textfield2").value;
+    const salary = document.getElementById("textfield3").value;
 
+    if (name && position && salary) {
+        // Create a new row
+        const newRow = table.insertRow();
 
+        // Insert cells into the new row and add input values
+        const nameCell = newRow.insertCell(0);
+        const positionCell = newRow.insertCell(1);
+        const salaryCell = newRow.insertCell(2);
+
+        nameCell.textContent = name;
+        positionCell.textContent = position;
+        salaryCell.textContent = salary;
+
+        // Clear the input fields for better user experience
+        document.getElementById("textfield").value = "";
+        document.getElementById("textfield2").value = "";
+        document.getElementById("textfield3").value = "";
+    } else {
+        alert("Please fill in all fields before adding a row.");
+    }
+}
