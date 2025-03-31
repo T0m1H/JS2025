@@ -153,6 +153,25 @@ function doMove() {
     }
 }
 
+function fadeOut() {
+    const carImage = document.getElementById("carimage");
+
+    if (carImage) {
+        let opacity = 1; // Initial opacity of the image
+
+        const interval = setInterval(function () {
+            if (opacity > 0) {
+                opacity -= 0.05; // Reduce opacity by small increments
+                carImage.style.opacity = opacity;
+            } else {
+                clearInterval(interval); // Stop the interval when opacity reaches 0
+            }
+        }, 50); // Adjust interval timing for smoother fading
+    } else {
+        console.error("The element with ID 'carimage' was not found.");
+    }
+}
+
 
 
 
