@@ -86,5 +86,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const selectMenu = document.getElementById("mySelect");
+    const carImage = document.getElementById("carimage");
+
+    // Add an event listener to the pulldown menu
+    selectMenu.addEventListener("change", function () {
+        const selectedValue = selectMenu.value;
+
+        // Change the image source based on the user's choice
+        switch (selectedValue) {
+            case "BMW":
+                carImage.src = "https://www.bmw.fi/content/dam/bmw/common/all-models/m-series/m8-coupe/2022/navigation/bmw-8series-coupe-modellfinder.png";
+                break;
+            case "Audi":
+                carImage.src = "https://cloudcdn.nz/_continentalcars_/assets/uploads/2020/07/cc-audi-rs6-review2.jpg?w=768";
+                break;
+            case "Mercedes":
+                carImage.src = "https://cdn.pixabay.com/photo/2021/08/29/02/51/mercedes-amg-6582260_1280.jpg";
+                break;
+            case "Volvo":
+                carImage.src = "https://cdn.pixabay.com/photo/2020/04/12/16/27/isolated-5034839_1280.png";
+                break;
+            default:
+                alert("No image available for the selected car!");
+                break;
+        }
+    });
+});
+
 
 
