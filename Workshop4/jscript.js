@@ -70,14 +70,21 @@ function showUserChoice() {
 }
 
 
-const imageElement = document.getElementById("carimage");
-imageElement.onmouseover = function() {
-    imageElement.style.border = "5px solid red";
-};
-imageElement.onmouseout = function() {
-    imageElement.style.border = "none";
-};
+document.addEventListener("DOMContentLoaded", function () {
+    const carImage = document.getElementById("carimage");
 
+    if (carImage) {
+        carImage.onmouseover = function () {
+            carImage.style.border = "5px solid red";
+        };
+
+        carImage.onmouseout = function () {
+            carImage.style.border = "none";
+        };
+    } else {
+        console.error("Image with ID 'carimage' not found!");
+    }
+});
 
 
 
