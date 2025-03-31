@@ -53,6 +53,17 @@ function show() {
     element.style.display = 'block';
 }
 
+function applySurpriseStyle() {
+    // Find all elements with the class "surprise"
+    const surpriseElements = document.querySelectorAll('.surprise');
+
+    // Loop through each element and change the font size
+    surpriseElements.forEach(element => {
+        element.style.fontSize = '20px'; // Set font size to 20
+    });
+}
+
+
 
 
 
