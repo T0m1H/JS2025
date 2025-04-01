@@ -75,3 +75,103 @@ function loadAndParseData() {
         });
 }
 
+function getRawWeatherData() {
+    const city = "Helsinki"; // Replace with the desired city
+    const apiKey = "dc687f344bab87a5ed9e323e095463d3";
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+    // Fetch the weather data
+    fetch(url)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Parse the response as JSON
+        })
+        .then((data) => {
+            // Display the raw JSON data in the weatherdata div
+            const weatherDiv = document.getElementById("weatherdata");
+            weatherDiv.textContent = JSON.stringify(data, null, 2); // Format JSON with indentation
+        })
+        .catch((error) => {
+            console.error("Error fetching weather data:", error);
+            document.getElementById("weatherdata").textContent = "Failed to load weather data.";
+        });
+}
+
+function getWeatherForCity() {
+    // Get the selected city from the dropdown menu
+    const city = document.getElementById("citySelect").value;
+    const apiKey = "your_api_key_here"; // Replace with your OpenWeatherMap API key
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+    // Fetch the weather data
+    fetch(url)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Parse the response as JSON
+        })
+        .then((data) => {
+            // Extract weather details
+            const temperature = data.main.temp;
+            const clouds = data.clouds.all;
+            const humidity = data.main.humidity;
+
+            // Display the data in the weatherdata div
+            const weatherDiv = document.getElementById("weatherdata");
+            weatherDiv.innerHTML = `
+                <p><strong>City:</strong> ${city}</p>
+                <p><strong>Temperature:</strong> ${temperature} °C</p>
+                <p><strong>Cloud Coverage:</strong> ${clouds}%</p>
+                <p><strong>Humidity:</strong> ${humidity}%</p>
+            `;
+        })
+        .catch((error) => {
+            console.error("Error fetching weather data:", error);
+            document.getElementById("weatherdata").textContent = "Failed to load weather data.";
+        });
+}
+
+function searchCityWeather() {
+    // Get the user input (city name)
+    const city = document.getElementById("citySearch").value;
+    if (!city) {
+        document.getElementById("weatherdata").textContent = "Please enter a city name.";
+        return;
+    }
+
+    // OpenWeatherMap API key and URL
+    const apiKey = "your_api_key_here"; // Replace with your actual API key
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+    // Fetch the weather data
+    fetch(url)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Parse the response as JSON
+        })
+        .then((data) => {
+            // Extract weather details
+            const temperature = data.main.temp;
+            const clouds = data.clouds.all;
+            const humidity = data.main.humidity;
+
+            // Display the data
+            const weatherDiv = document.getElementById("weatherdata");
+            weatherDiv.innerHTML = `
+                <p><strong>City:</strong> ${data.name}</p>
+                <p><strong>Temperature:</strong> ${temperature} °C</p>
+                <p><strong>Cloud Coverage:</strong> ${clouds}%</p>
+                <p><strong>Humidity:</strong> ${humidity}%</p>
+            `;
+        })
+        .catch((error) => {
+            console.error("Error fetching weather data:", error);
+            document.getElementById("weatherdata").textContent = "Unable to retrieve weather data. Please check the city name.";
+        });
+}
+
