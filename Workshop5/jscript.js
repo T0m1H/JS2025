@@ -145,3 +145,36 @@ document.addEventListener("DOMContentLoaded", function () {
         costField.value = `$${totalCost.toFixed(2)}`;
     };
 });
+
+function calculate() {
+    // Get the input values from the form
+    const quantity = parseInt(document.getElementById("quantity").value, 10); // Store quantity as an integer
+    const price = parseFloat(document.getElementById("price").value);        // Store price as a float
+    const tax = parseFloat(document.getElementById("tax").value);            // Store tax as a float
+    const discount = parseFloat(document.getElementById("discount").value);  // Store discount as a float
+    const shipping = parseFloat(document.getElementById("shipping").value);  // Store shipping as a float
+
+    // Validate input values
+    if (isNaN(quantity) || isNaN(price) || isNaN(tax) || isNaN(discount) || isNaN(shipping)) {
+        alert("Please enter valid values for all fields.");
+        return;
+    }
+
+    // Apply double discount logic if quantity is greater than 100
+    let appliedDiscount = discount;
+    if (quantity > 100) {
+        appliedDiscount *= 2; // Double the discount
+    }
+
+    // Calculate subtotal
+    const subtotal = quantity * price;
+
+    // Calculate tax
+    const taxAmount = subtotal * (tax / 100);
+
+    // Calculate total cost after applying tax, discount, and adding shipping cost
+    const total = subtotal + taxAmount - appliedDiscount + shipping;
+
+    // Display the total in the Total field
+    document.getElementById("total").value = total.toFixed(2);
+}

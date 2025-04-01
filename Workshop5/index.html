@@ -114,13 +114,18 @@
             <input type="text" name="discount" id="discount" value="0.00" required>
         </div>
         <div>
-            <label for="total">Total</label>
-            <input type="text" name="total" id="total" value="0.00">
+            <label for="shipping">Shipping Cost</label>
+            <input type="text" name="shipping" id="shipping" value="0.00" required>
         </div>
         <div>
-            <input type="submit" value="Calculate" id="submit-calculate" onClick="calculate()">
+            <label for="total">Total</label>
+            <input type="text" name="total" id="total" value="0.00" disabled>
+        </div>
+        <div>
+            <input type="button" value="Calculate" id="submit-calculate" onClick="calculate()">
         </div>
     </fieldset>
+    
 
     <hr />
     <h2>Exercise 4: Hidden Extra fields</h2>
