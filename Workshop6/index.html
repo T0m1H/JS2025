@@ -4,6 +4,7 @@
 		<title>Workshop 6</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/styles.css">
+		<script src="jscript.js"></script>
 	</head>
 	<body class="ws6" onload="">
 		<h1>Workshop 6: Using Localstorage</h1>
@@ -43,7 +44,10 @@
 			assignment, and load them into a div with an id="sessionData". This should happen when the 
 			page is loaded, because we want the data to be loaded then as well. HINT: use onLoad -
 			event on the body tag.</p>
-			<div id="sessiondata">Session data goes here!</div>
+			<body onload="loadSessionData()">
+				<div id="sessionData">Session data goes here!</div>
+			</body>
+				
 		</div>
 		<hr/>
 		<div>
