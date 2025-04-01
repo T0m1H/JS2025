@@ -1,14 +1,72 @@
+function showContactDetailField() {
+    const contactMethod = document.getElementById("contactMethod").value;
+    const contactDetailsDiv = document.getElementById("contactDetails");
+    const contactDetailLabel = document.getElementById("contactDetailLabel");
+    const contactDetailInput = document.getElementById("contactDetail");
+
+    if (contactMethod) {
+        contactDetailsDiv.style.display = "block"; // Show the field
+        if (contactMethod === "email") {
+            contactDetailLabel.textContent = "Enter your email address:";
+            contactDetailInput.placeholder = "example@example.com";
+        } else if (contactMethod === "phone") {
+            contactDetailLabel.textContent = "Enter your phone number:";
+            contactDetailInput.placeholder = "123-456-7890";
+        } else if (contactMethod === "sms") {
+            contactDetailLabel.textContent = "Enter your mobile number:";
+            contactDetailInput.placeholder = "123-456-7890";
+        }
+    } else {
+        contactDetailsDiv.style.display = "none"; // Hide the field if no method is selected
+        contactDetailLabel.textContent = "";
+        contactDetailInput.placeholder = "";
+    }
+}
+
 function validateForm() {
     const email = document.getElementById("email").value;
     const comment = document.getElementById("comment").value;
+    const contactMethod = document.getElementById("contactMethod").value;
+    const contactDetail = document.getElementById("contactDetail").value;
 
-    // Display entered values
-    alert(`Email: ${email}`);
-    alert(`Comment: ${comment}`);
+    let isValid = true;
 
-    // Cancel form submission for now
-    return false; // Prevent form submission
+    // Clear previous errors
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("commentError").textContent = "";
+    document.getElementById("contactMethodError").textContent = "";
+
+    // Validate email field
+    if (!email.includes("@") || email.length < 6 || email.length > 15) {
+        document.getElementById("emailError").textContent = "Invalid email format.";
+        isValid = false;
+    }
+
+    // Validate comment field
+    if (!comment.trim()) {
+        document.getElementById("commentError").textContent = "Comment cannot be empty.";
+        isValid = false;
+    } else if (comment.length > 50) {
+        document.getElementById("commentError").textContent = "Comment must not exceed 50 characters.";
+        isValid = false;
+    }
+
+    // Validate contact method
+    if (!contactMethod) {
+        document.getElementById("contactMethodError").textContent = "Please select a contact method.";
+        isValid = false;
+    }
+
+    // Validate contact detail
+    if (contactMethod && !contactDetail.trim()) {
+        alert(`Please provide your ${contactMethod} details.`);
+        isValid = false;
+    }
+
+    // Prevent form submission if validation fails
+    return isValid;
 }
+
 function validateForm() {
     const email = document.getElementById("email").value;
     const comment = document.getElementById("comment").value;
