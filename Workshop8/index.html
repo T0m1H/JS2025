@@ -37,9 +37,13 @@
 		<h2>Exercise 2: Parsing JSON from web</h2>
 		<p>Below you see two buttons. Edit the source code and add onClick-events to these buttons. Add functionality to these as described below.</p>
 		<p>
-		  <button>Load raw data</button>
-		  <button>Load and parse the data</button>
-		</p>
+            <button onclick="loadRawData()">Load raw data</button>
+            <button onclick="loadAndParseData()">Load and parse the data</button>
+        </p>
+        <div id="rawdata">Raw data goes here.</div>
+        <div id="parseddata">Parsed data goes here.</div>
+        
+        
 
 		<ul>
 		  <li>The first button should run a JavaScript-function, which will load the given <a href="http://www.omdbapi.com/?s=star+wars&apikey=cbbc6750">JSON file from the web </a>and display the raw contents of it on the DIV-below (id=rawdata). Use Developer tools (F12) to track the AJAX call and study the headers, execution times etc.</li>

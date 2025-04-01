@@ -24,3 +24,54 @@ function displayAll() {
         `;
     }
 }
+
+function loadRawData() {
+    const url = "http://www.omdbapi.com/?s=star+wars&apikey=cbbc6750"; // Replace with valid API URL
+
+    fetch(url)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Parse response as JSON
+        })
+        .then((data) => {
+            const rawDataDiv = document.getElementById("rawdata");
+            rawDataDiv.textContent = JSON.stringify(data, null, 2); // Display raw JSON data as a formatted string
+        })
+        .catch((error) => {
+            console.error("Error fetching data:", error);
+        });
+}
+
+function loadAndParseData() {
+    const url = "http://www.omdbapi.com/?s=star+wars&apikey=cbbc6750"; // Replace with valid API URL
+
+    fetch(url)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Parse response as JSON
+        })
+        .then((data) => {
+            const parsedDataDiv = document.getElementById("parseddata");
+
+            // Create an HTML table
+            let table = "<table border='1'><tr><th>Title</th><th>Year</th><th>Poster</th></tr>";
+            data.Search.forEach((movie) => {
+                table += `<tr>
+                    <td>${movie.Title}</td>
+                    <td>${movie.Year}</td>
+                    <td><img src="${movie.Poster}" alt="${movie.Title}" width="100"></td>
+                </tr>`;
+            });
+            table += "</table>";
+
+            parsedDataDiv.innerHTML = table; // Display the table
+        })
+        .catch((error) => {
+            console.error("Error fetching data:", error);
+        });
+}
+
