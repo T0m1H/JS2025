@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Workshop 8</title>
 		<link rel="stylesheet" href="css/styles.css">
+        <script src="jscript.js"></script>
 	</head>
 	<body class="ws8">
 		<h1>Workshop 8: Parsing JSON/XML with AJAX</h1>
@@ -14,9 +15,11 @@
 		<h2>Exercise 1: JSON Basics</h2>
 		<p>JSON means JavaScript Object Notations, and it means that we will represent data in a format which JavaScript understands as such. No conversions are necessary to use it.</p>
 		<p>
-		  <button>Display the first and lastname only</button>
-		  <button>Display all data</button>
-		</p>
+            <button onclick="displayNames()">Display the first and lastname only</button>
+            <button onclick="displayAll()">Display all data</button>
+        </p>
+        <div id="jsondata">JSON data goes here.</div>
+        
 		<p>Let's try the following. You can create a new JSON dataset in your JavaScript as described below. Then create functions, which will run when the buttons are clicked.</p>
 
 		<pre>
